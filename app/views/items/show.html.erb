@@ -6,3 +6,8 @@
 	<pre><%= @item.details %></pre>
 </div>
 
+<br>
+
+<%= link_to "Edit this Item", edit_item_url(@item)%><br>
+
+<%= link_to "Back to Project", project_url(@item.project)%>

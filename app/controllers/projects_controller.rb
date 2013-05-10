@@ -18,8 +18,22 @@ class ProjectsController < ApplicationController
 		if @project.save
 			redirect_to project_url(@project)
 		else
-			render :new
+			render :form
 		end
 	end
 
+	def edit
+		@project = Project.find(params[:id])
+		render :form
+	end
+
+	def update
+		@project = Project.find(params[:id])
+
+		if @project.update_attributes(params[:project])
+			redirect_to project_url(@project)
+		else
+			render :form
+		end
+	end
 end

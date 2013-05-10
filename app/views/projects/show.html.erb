@@ -10,8 +10,13 @@
 
 <ul>
 	<% @project.items.each do |item| %>
-	  <%= item.title %>
+	  <li><%= link_to item.title, item_url(item) %></li>
 	<% end %>
 </ul>
 <br>
-<%= link_to "Add new items", new_item_url %>
+
+<%= link_to "Edit this Project", edit_project_url(@project)%><br>
+
+<%= link_to "Add new items", new_item_url %><br>
+
+<%= link_to "Return to Project List", projects_url %><br>
