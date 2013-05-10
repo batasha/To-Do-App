@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def new
-		@project = Project.new
+		@project = Project.new(:team_id => params[:team_id])
 		render :form
 	end
 

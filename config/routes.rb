@@ -3,7 +3,7 @@ Todo::Application.routes.draw do
 
 	resources :projects
 	resources :items do
-		resources :items, :only => [:new]
+		resources :items, :only => [:index]
 	end
 
 	resources :teams do
