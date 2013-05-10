@@ -1,0 +1,14 @@
+<h1> Users </h1>
+
+<% @users.each do |user| %>
+	<div class="field">
+	<h3><%= link_to user.name, user_url(user) %></h3>
+	</div>
+<% end %>
+
+<br>
+<br>
+
+<%= link_to "Create a new user", new_user_url%><br>
+
+

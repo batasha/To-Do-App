@@ -2,8 +2,6 @@
 
 <h3> Projects </h3>
 
-
-
 <ul>
 	<% @team.projects.each do |project| %>
 	  <li><%= link_to project.title, project_url(project) %></li>
@@ -11,6 +9,15 @@
 </ul>
 <br>
 
-<%= link_to "Edit this Team", edit_team_url(@team)%><br>
+<h3> Members </h3>
 
+<ul>
+	<% @team.users.each do |user| %>
+	  <li><%= link_to user.name, user_url(user) %></li>
+	<% end %>
+</ul>
+<br>
+
+<%= link_to "Edit this Team", edit_team_url(@team)%><br>
+<%= link_to "Start a New Project", new_project_url %><br>
 <%= link_to "Return to Team List", teams_url %><br>

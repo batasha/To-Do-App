@@ -1,0 +1,18 @@
+<h1> <%= @user.name %> </h1>
+
+<h3> Teams </h3>
+
+
+
+<ul>
+	<% @user.teams.each do |team| %>
+	  <%= link_to team.name, team_url(team) %><br>
+	<% end %>
+</ul>
+<br>
+
+
+
+<%= link_to "Edit this User", edit_user_url(@user)%><br>
+
+<%= link_to "Return to User List", users_url %><br>
