@@ -1,9 +1,5 @@
-<% if @item.persisted? %>
- <form action="<%= item_url(@item) %>" method="post">
-
-	<input type="hidden" name="_method" value="put">
-
-	<!-- <div class="field">
+<%= form_for(@item) do |f| %>
+	<div class="field">
 		<%= f.label :title %><br>
 		<%= f.text_field :title %>
 	</div>
@@ -25,6 +21,4 @@
 
 
 	<%= f.submit %>
-<% end %> -->
-
-</form>
+<% end %>
