@@ -1,0 +1,19 @@
+<h1> Teams </h1>
+
+<% @teams.each do |team| %>
+	<div class="field">
+	<h3><%= link_to team.name, team_url(team) %></h3>
+		<ul>
+	  <% team.projects.each do |project| %>
+		  <li><%= link_to project.title, project_url(project) %></li>
+		<% end %>
+		</ul>
+	</div>
+<% end %>
+
+<br>
+<br>
+
+<%= link_to "Create a new team", new_team_url%><br>
+
+

@@ -1,0 +1,16 @@
+<h1> <%= @team.name %> </h1>
+
+<h3> Projects </h3>
+
+
+
+<ul>
+	<% @team.projects.each do |project| %>
+	  <li><%= link_to project.title, project_url(project) %></li>
+	<% end %>
+</ul>
+<br>
+
+<%= link_to "Edit this Team", edit_team_url(@team)%><br>
+
+<%= link_to "Return to Team List", teams_url %><br>

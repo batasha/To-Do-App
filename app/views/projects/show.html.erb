@@ -4,8 +4,15 @@
 	<pre><%= @project.description %></pre>
 </div>
 
-<h3> Items </h3>
+<h3> Team </h3>
 
+<div class="field">
+	<pre><%= link_to @project.team.name, team_url(@project.team) %></pre>
+</div>
+
+<br>
+
+<h3> Items </h3>
 
 
 <ul>
