@@ -14,6 +14,10 @@ class ItemsController < ApplicationController
 	def create
 		@item = Item.new(params[:project])
 
-		@item.save ? redirect_to item_url(@item) : render :new
+		if @item.save
+			redirect_to item_url(@item)
+		else
+			render :new
+		end
 	end
 end

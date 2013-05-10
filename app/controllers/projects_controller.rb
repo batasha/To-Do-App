@@ -14,7 +14,11 @@ class ProjectsController < ApplicationController
 	def create
 		@project = Project.new(params[:project])
 
-		@project.save ? redirect_to project_url(@project) : render :new
+		if @project.save
+			redirect_to project_url(@project)
+		else
+			render :new
+		end
 	end
 
 end

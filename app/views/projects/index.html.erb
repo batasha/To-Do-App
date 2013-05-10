@@ -1,0 +1,12 @@
+<h1> To-Do List </h1>
+
+<% @projects.each do |project| %>
+	<div class="field">
+	<h3><%= link_to project.title, project_url(project) %></h3>
+		<ul>
+	  <% project.items.each do |item| %>
+		  <li><%= item.title %></li>
+		<% end %>
+		</ul>
+	</div>
+<% end %>
