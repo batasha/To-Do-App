@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
 
 	def new
 		@project = Project.new
+		render :form
 	end
 
 	def create
