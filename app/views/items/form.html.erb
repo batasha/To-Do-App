@@ -16,14 +16,15 @@
 	  <label for "item_project">Project</label>
 	  <select name="item[project_id]">
 	  	<% Project.all.each do |project| %>
-	  	  <option name="item[project_id]" value="<%= project.id %>" selected="<%= "selected" if @item.project_id == project.id %>"><%= project.title %></option>
+	  	  <option name="item[project_id]" value="<%= project.id %>" <%= "selected" if @item.project_id == project.id %>><%= project.title %></option>
 	  	<% end %>
 	  </select><br>
 
-	  <label for "item_completed">Completed</label>
-	  <input type="checkbox" name="item[completed]" value="<%= "checked" if @item.completed %>"><br>
-	
+	  <input type="hidden" name="item[completed]" value="0">
 
+	  <label for "item_completed">Completed</label>
+	  <input type="checkbox" name="item[completed]" value="1" <%= "checked" if @item.completed? %>><br>
+	
 
 	<input type="submit" name="commit" value="Save">
 
