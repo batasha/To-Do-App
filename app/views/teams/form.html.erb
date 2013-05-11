@@ -1,8 +1,17 @@
-<%= form_for(@team) do |f| %>
-	<div class="field">
-		<%= f.label :name %><br>
-		<%= f.text_field :name %>
-	</div>
+<% if @team.persisted? %>
+  <form action="<%= team_url(@team) %>" method="post">
 
-	<%= f.submit %>
+  <input type="hidden" name="_method" value="put">
+
+<% else %>
+  <form action="<%= teams_url %>" method="post">
 <% end %>
+
+    <label for="team_name">Title</label>
+    <input type="text" name="team[name]" id="team_name" value="<%= @team.name %>"><br>
+
+    <input type="submit" name="commit" value="Save">
+
+  </form>
+
+

@@ -1,30 +1,30 @@
 <% if @item.persisted? %>
- <form action="<%= item_url(@item) %>" method="post">
+  <form action="<%= item_url(@item) %>" method="post">
 
 	<input type="hidden" name="_method" value="put">
 
-	<!-- <div class="field">
-		<%= f.label :title %><br>
-		<%= f.text_field :title %>
-	</div>
+<% else %>
+  <form action="<%= items_url %>" method="post">
+<% end %>
 
-	<div class="field">
-		<%= f.label :details %><br>
-		<%= f.text_area :details %>
-	</div>
+	  <label for="item_title">Title</label>
+	  <input type="text" name="item[title]" id="item_title" value="<%= @item.title %>"><br>
 
-	<div class="field">
-		<%= f.label :project %><br>
-		<%= f.collection_select :project_id, Project.all, :id, :title%><br>
-	</div>
+	  <label for="item_details">Details</label>
+	  <textarea name="item[details]" id="item_details" value="<%= @item.details %>"></textarea><br>
 
-	<div class="field">
-		<%= f.label :completed %><br>
-		<%= f.check_box :completed %>
-	</div>
+	  <label for "item_project">Project</label>
+	  <select name="item[project_id]">
+	  	<% Project.all.each do |project| %>
+	  	  <option name="item[project_id]" value="<%= project.id %>" selected="<%= "selected" if @item.project_id == project.id %>"><%= project.title %></option>
+	  	<% end %>
+	  </select><br>
+
+	  <label for "item_completed">Completed</label>
+	  <input type="checkbox" name="item[completed]" value="<%= "checked" if @item.completed %>"><br>
+	
 
 
-	<%= f.submit %>
-<% end %> -->
+	<input type="submit" name="commit" value="Save">
 
 </form>
