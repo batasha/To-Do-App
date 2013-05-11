@@ -1,1 +1,10 @@
-<li><%= link_to item.title, item_url(item) %></li>
+<form action="<%= item_url(item) %>" method="post">
+  <input type="hidden" name="_method" value="put">
+
+  <input type="hidden" name="item[completed]" value="0">
+  <input type="checkbox" name="item[completed]" value="1" <%= "checked" if item.completed? %>> 
+ 
+  <%= link_to item.title, item_url(item) %>
+
+  <input type="submit" name="commit" value="Save">
+</form>

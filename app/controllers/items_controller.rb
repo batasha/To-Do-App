@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 
 		if @item.update_attributes(params[:item])
-			redirect_to item_url(@item)
+			redirect_to project_url(@item.project)
 		else
 			render :form
 		end
